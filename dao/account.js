@@ -13,8 +13,7 @@ class AccountDAO {
     return db("accounts").select(
       "id",
       "firstname",
-      "lastname",
-      "username",
+      "lastname", 
       "phone",
       "roles",
       "address",
@@ -28,8 +27,7 @@ class AccountDAO {
     const {
       email,
       firstname,
-      lastname,
-      username,
+      lastname, 
       address,
       phone,
       password,
@@ -39,8 +37,7 @@ class AccountDAO {
       .insert({
         email,
         firstname,
-        lastname,
-        username,
+        lastname, 
         address,
         phone,
         password: newPwd,
@@ -58,8 +55,7 @@ class AccountDAO {
       id: uid,
       email,
       firstname,
-      lastname,
-      username,
+      lastname, 
       address,
       phone,
     } = data;
@@ -77,8 +73,7 @@ class AccountDAO {
         .update({
           email,
           firstname,
-          lastname,
-          username,
+          lastname, 
           address,
           phone,
         })
@@ -98,14 +93,13 @@ class AccountDAO {
   }
 
   async updateProfile(data, uid) {
-    const { firstname, lastname, username, address, phone } = data;
+    const { firstname, lastname, address, phone } = data;
 
     const [id] = await db("accounts")
       .where("id", uid)
       .update({
         firstname,
-        lastname,
-        username,
+        lastname, 
         address,
         phone,
       })
@@ -144,7 +138,7 @@ class AccountDAO {
   }
   async setRoles(data) {
     const { priviledges,  id: uid } = data;
-    const roles =  JSON.stringify(priviledges); 
+    const roles =  JSON.stringify(priviledges);  
     const hasRoles = true;
     const [id] = await db("accounts")
       .where("id", uid)

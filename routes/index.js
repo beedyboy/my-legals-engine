@@ -2,7 +2,7 @@ const express = require("express");
 const routes = express.Router();
  
 const subscribers = require('./subscribers');
-const blog = require('.'); 
+const blog = require('./blog'); 
 const account = require('./account');
  
 routes.use('/subscribers', subscribers); 
